@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: javaServiceTreeFrameworkMiddleProxy
+  zipkin:
+    enabled: true
+    service.name: zipkin-service
+    sender.type: web
+    base-url: http://192.168.25.46:9411
+  sleuth:
+    enabled: true
+    sampler:
+      probability: 1.0
+
+server:
+  port: 13131
+
+tokenUrl: http://www.313.co.kr/auth/realms/devops/protocol/openid-connect/token
+clientId: Java-Service-Tree-Framework-Middle-Proxy
+clientSecret: f1011641-e4d4-4dc8-b177-7834fcf7d041
+accessTokenUser: admin
+accessTokenPass: qwe123

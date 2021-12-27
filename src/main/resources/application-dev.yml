@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: dev
+
+zuul:
+  ignoredServices: "*"
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
+  routes:
+    javaServiceTreeFrameworkBackendServer-DWR:
+      path: /dwr/**
+      url: http://127.0.0.1:31313/dwr
+      sensitiveHeaders: Cookie,Set-Cookie
+    javaServiceTreeFrameworkBackendServer-AuthAnon:
+      path: /auth-anon/**
+      url: http://127.0.0.1:31313/auth-anon
+      sensitiveHeaders: Cookie,Set-Cookie
+    javaServiceTreeFrameworkBackendServer-AuthUser:
+      path: /auth-user/**
+      url: http://127.0.0.1:31313/auth-user
+      sensitiveHeaders: Cookie,Set-Cookie
+    javaServiceTreeFrameworkBackendServer-AuthAdmin:
+      path: /auth-admin/**
+      url: http://127.0.0.1:31313/auth-admin
+      sensitiveHeaders: Cookie,Set-Cookie
+
+ribbon:
+  eureka:
+    enabled: false
