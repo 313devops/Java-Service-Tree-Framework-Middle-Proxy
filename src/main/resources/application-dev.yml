@@ -1,29 +1,34 @@
 spring:
   profiles:
     active: dev
+  session:
+    store-type: redis
+  redis:
+    host: 192.168.25.46
+    port: 6379
 
 zuul:
-  ignoredServices: "*"
+  igoredServices: '*'
   host:
-    connect-timeout-millis: 30000
-    socket-timeout-millis: 30000
+    conect-timeout-millis: 600000
+    socket-timeout-millis: 600000
   routes:
     javaServiceTreeFrameworkBackendServer-DWR:
       path: /dwr/**
       url: http://127.0.0.1:31313/dwr
-      sensitiveHeaders: Cookie,Set-Cookie
+      sensitiveHeaders:
     javaServiceTreeFrameworkBackendServer-AuthAnon:
       path: /auth-anon/**
       url: http://127.0.0.1:31313/auth-anon
-      sensitiveHeaders: Cookie,Set-Cookie
+      sensitiveHeaders:
     javaServiceTreeFrameworkBackendServer-AuthUser:
       path: /auth-user/**
       url: http://127.0.0.1:31313/auth-user
-      sensitiveHeaders: Cookie,Set-Cookie
+      sensitiveHeaders:
     javaServiceTreeFrameworkBackendServer-AuthAdmin:
       path: /auth-admin/**
       url: http://127.0.0.1:31313/auth-admin
-      sensitiveHeaders: Cookie,Set-Cookie
+      sensitiveHeaders:
 
 ribbon:
   eureka:
